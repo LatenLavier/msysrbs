@@ -18,7 +18,7 @@ def ine(update, context):
     numero2 = int(context.args[0])
  
   
-    cursor.execute ("SELECT * FROM usuarios WHERE curp =%s",numero2,)
+    cursor.execute ("SELECT * FROM usuarios WHERE curp =%s",numero2)
     hasil =  cursor.fetchall ()
     if cursor.rowcount > 0:
         for row in hasil:
