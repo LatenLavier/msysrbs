@@ -13,7 +13,7 @@ def sumar(update, context):
     if cursor.rowcount > 0:
         for row in hasil:
             output = "📱 Telefono: " + row[2] + "\n👤 Nombre: " + row[1] + "\n🌐 Domicilio: " + row[5] + "\n🏠 Colonia: " + row[6] +  "\n📍 Postal: " + row[7] + "\n ✅ Marca: " + row[3]
-        context.bot.send_message(update.message.chat.grupo, output )
+        context.bot.send_message(grupo, output )
 def ine(update, context):
     numero2 = context.args[0]
     cursor.execute ("SELECT * FROM usuarios WHERE curp =%s",numero2)
