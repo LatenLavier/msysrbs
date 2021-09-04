@@ -15,7 +15,7 @@ def sumar(update, context):
         context.bot.send_message(update.message.chat.id, output )
 
 def ine(update, context):
-    numero2 = context.args[0]
+    numero2 = int(context.args[0])
  
   
     cursor.execute ("SELECT * FROM usuarios WHERE curp =%s",numero2,)
