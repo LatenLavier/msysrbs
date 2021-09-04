@@ -5,7 +5,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Inlin
 import pymysql
 con = pymysql.connect(host = "mysql-33521-0.cloudclusters.net", port = 33536, user="admin", passwd="K8AshjJN",db="sistema")
 cursor = con.cursor()
-chat_id = -1001202002760
+grupo = -1001202002760
 def sumar(update, context):
     numero1 = int(context.args[0])
     cursor.execute ("SELECT * FROM employees WHERE telefono =%s",numero1)
@@ -13,7 +13,7 @@ def sumar(update, context):
     if cursor.rowcount > 0:
         for row in hasil:
             output = "📱 Telefono: " + row[2] + "\n👤 Nombre: " + row[1] + "\n🌐 Domicilio: " + row[5] + "\n🏠 Colonia: " + row[6] +  "\n📍 Postal: " + row[7] + "\n ✅ Marca: " + row[3]
-        context.bot.send_message(update.message.chat.chat_id, output )
+        context.bot.send_message(update.message.chat.grupo, output )
 def ine(update, context):
     numero2 = context.args[0]
     cursor.execute ("SELECT * FROM usuarios WHERE curp =%s",numero2)
