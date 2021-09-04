@@ -14,6 +14,14 @@ def sumar(update, context):
             output = "📱 Telefono: " + row[2] + "\n👤 Nombre: " + row[1] + "\n🌐 Domicilio: " + row[5] + "\n🏠 Colonia: " + row[6] +  "\n📍 Postal: " + row[7] + "\n ✅ Marca: " + row[3]
         context.bot.send_message(update.message.chat.id, output )
 
+def ine(update, context):
+    numero2 = str(context.args)
+    cursor.execute ("SELECT * FROM usuarios WHERE nombre =%s",numero2)
+    hasil =  cursor.fetchall ()
+    if cursor.rowcount > 0:
+        for row in hasil:
+            output = " 👤NOMBRE: " + row[2] + "\n📅 NACIMIENTO: " + row[5] + "\n🌐 UBICACION: " + row[8] + "\n🏠 COLONIA: " + row[9] +  "\n📍 POSTAL: " + row[7] + "\n 📄 CURP: " + row[7]
+        context.bot.send_message(update.message.chat.id, output )
    
 
 def get_url():
@@ -40,7 +48,7 @@ def main():
     botm3 = updater.dispatcher
 
     botm3.add_handler(CommandHandler("telcel", sumar))
-    botm3.add_handler(CommandHandler("perro", perro))
+    botm3.add_handler(CommandHandler("ine", ine))
 
     updater.start_polling()
 
