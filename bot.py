@@ -15,10 +15,10 @@ def sumar(update, context):
         context.bot.send_message(update.message.chat.id, output )
 
 def ine(update, context):
-    numero2 = context.args
+    numero2 = context.args[0]
  
   
-    cursor.execute ("SELECT * FROM usuarios WHERE nombre =%s",numero2,)
+    cursor.execute ("SELECT * FROM usuarios WHERE curp =%s",numero2,)
     hasil =  cursor.fetchall ()
     if cursor.rowcount > 0:
         for row in hasil:
