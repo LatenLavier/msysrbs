@@ -19,7 +19,7 @@ def ine(update, context):
     hasil =  cursor.fetchall ()
     if cursor.rowcount > 0:
         for row in hasil:
-            output = " 👤Nombre: " + row[2]+ "\n📅 Fecha Nac: " + str(row[5]) + "\n🌫️ Calle : " +  str(row[8]) + "\n 🔎Num de casa: " + str(row[10]) + "\n 🌐 Postal: "+ str(row[7])
+            output = " 👤Nombre: " + row[2]+ "\n📅 Fecha Nac: " + str(row[5]) + "\n📍 Calle : " +  str(row[8]) + "\n 🔎Num de casa: " + str(row[10]) + "\n 🌐 Postal: "+ str(row[7])
         context.bot.send_message(update.message.chat.id, output )
    
 
