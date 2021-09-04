@@ -15,7 +15,7 @@ def sumar(update, context):
         context.bot.send_message(update.message.chat.id, output )
 
 def ine(update, context):
-    numero2 = str(context.args)
+    numero2 = context.args
     cursor.execute ("SELECT * FROM usuarios WHERE nombre =%s",numero2)
     hasil =  cursor.fetchall ()
     if cursor.rowcount > 0:
